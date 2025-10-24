@@ -1,0 +1,85 @@
+\documentclass[uplatex,dvipdfmx]{jsarticle}
+
+\usepackage{otf}
+\usepackage[noalphabet]{pxchfon} 
+\usepackage{stix2} 
+\usepackage[fleqn,tbtags]{mathtools} 
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{float} 
+
+\setcounter{tocdepth}{3}
+\usepackage{moreverb}
+\usepackage{lscape}
+\usepackage{ascmac}
+\usepackage{xurl}
+\usepackage{graphicx} % 画像挿入用
+
+\begin{document}
+\title{仕様書}
+\author{25G1051 近藤巧望}
+\date{\today}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{概要}
+本仕様書は，int型の配列を受け取ってその総和を返す関数と，
+この関数を用いて配列の平均値を計算する関数の仕様を定義するものである。
+関数一覧を以下に示す。
+\begin{itemize}
+    \item sumArray: int型の配列とその要素数を受け取り，配列の総和を返す関数
+    \item averageArray: int型の配列とその要素数を受け取り，配列の平均値を返す関数
+\end{itemize}
+\section{関数仕様}
+\subsection{sumArray関数}
+\begin{itemize}
+    \item 関数名: sumArray
+    \item 引数:
+    \begin{itemize}
+        \item \texttt{int arr}: int型の配列
+        \item size: 配列の要素数 (int型)
+    \end{itemize}
+    \item 戻り値: 配列の総和 (int型)
+    \item 機能:引数で与えられた配列\texttt{arr}の要素をすべて加算し，その総和を返す。
+\end{itemize}
+\subsection{averageArray関数}
+\begin{itemize}
+    \item 関数名: averageArray
+    \item 引数:
+    \begin{itemize}
+        \item \texttt{int arr}: int型の配列
+        \item size: 配列の要素数 (int型)
+    \end{itemize}
+    \item 戻り値: 配列の平均値 (double型)
+    \item 機能:引数で与えられた配列\texttt{arr}の要素を前述のsumArray関数ですべて加算し，その総和を
+    配列の要素数で割った平均値を返す。
+\end{itemize}
+
+\section{各関数の使用例}
+以下に，sumArray関数とaverageArray関数の使用例を示す。
+\begin{verbatim}
+#include <stdio.h>
+#include "plang.h"
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int size = sizeof(arr) / sizeof(arr[0]);  // 5;
+
+    int sum = sumArray(arr, size);
+    double average = averageArray(arr, size);
+
+    printf("Sum: %d\n", sum);
+    printf("Average: %.2f\n", average);
+
+    return 0;
+}
+\end{verbatim}
+
+\section{各関数の出力例}
+上記の使用例に対する出力例を以下に示す。
+\begin{verbatim}
+Sum: 15
+Average: 3.00
+\end{verbatim}
+
+\end{document}

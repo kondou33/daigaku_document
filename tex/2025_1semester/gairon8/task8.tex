@@ -1,0 +1,62 @@
+\documentclass[uplatex]{jsarticle}
+\usepackage{amsmath}
+\usepackage[dvipdfmx]{graphicx}
+
+\setcounter{tocdepth}{3}
+\usepackage{float}
+\usepackage{moreverb}
+\usepackage{lscape}
+%\pagestyle{empty}
+%\usepackage{wrapfig}
+%\usepackage{url}
+%\usepackage{EasyLayout}
+
+\usepackage{ascmac}
+%\usepackage{fancybx}
+
+%\pagestyle{myheadings}
+
+
+\begin{document}
+
+\title{情報工学概論第８回課題発展課題8}
+\author{25G1051近藤巧望}
+%\date{2025年5月22日}
+\maketitle
+
+\section{選択ソート}
+\subsection{時間計算量}
+
+最良、平均、最悪すべてのケースで時間計算量は O(n²) と一定であり、特にデータが整列されていても効率は変わらない．
+\subsection{空間計算量}
+
+空間計算量は O(1) で、追加のメモリをほとんど使わないインプレースなアルゴリズムである．
+
+\section{クイックソート}
+\subsection{時間計算量}
+
+平均および最良のケースでは時間計算量が O(n log n) と非常に高速だが、
+最悪の場合（すでに整列されたデータなど）には O(n²) になる可能性がある．
+
+\subsection{空間計算量}
+
+空間計算量は O(log n) で、再帰呼び出しによりスタックメモリを使用する．
+
+\section{マージソート}
+\subsection{時間計算量}
+
+時間計算量は、分割とマージの両方に O(n log n) の計算量がかかるため、最良・平均・最悪すべて O(n log n) である．
+
+\subsection{空間計算量}
+
+マージの過程で一時的な配列が必要になるため、空間計算量は O(n) である．
+
+\section{バブルソート}
+\subsection{時間計算量}
+
+最良の場合（すでに整列済み）には O(n) で済みますが、平均および最悪のケースでは O(n²) である．
+
+\subsection{空間計算量}
+
+空間計算量は O(1) で、インプレースな操作が可能となる．
+\end{document}

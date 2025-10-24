@@ -1,0 +1,129 @@
+// {
+//   "editor.formatOnPaste": true,
+//   "editor.formatOnSave": true,
+//   "git.ignoreMissingGitWarning": true,
+//   "[javascript]": {
+//     "editor.defaultFormatter": "vscode.typescript-language-features"
+//   },
+//   "[html]": {
+//     "editor.defaultFormatter": "vscode.html-language-features"
+//   },
+//   "git.autofetch": true,
+//   "notebook.defaultFormatter": "ms-vscode.cpptools",
+//   "git.enableSmartCommit": true,
+//   "git.confirmSync": false,
+//   "files.autoSave": "afterDelay",
+//   "cmake.pinnedCommands": [
+//     "workbench.action.tasks.configureTaskRunner",
+//     "workbench.action.tasks.runTask"
+//   ],
+//   "cSpell.language": "ja",
+//   "terminal.integrated.inheritEnv": false,
+//   "github.copilot.nextEditSuggestions.enabled": true,
+//   "code-runner.runInTerminal": true
+// }
+{
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "git.ignoreMissingGitWarning": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "git.autofetch": true,
+    "notebook.defaultFormatter": "ms-vscode.cpptools",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "cmake.pinnedCommands": [
+        "workbench.action.tasks.configureTaskRunner",
+        "workbench.action.tasks.runTask"
+    ],
+    "cSpell.language": "ja",
+    "terminal.integrated.inheritEnv": false,
+    "github.copilot.nextEditSuggestions.enabled": true,
+    // LaTeX Workshop 設定を追加
+    "latex-workshop.latex.tools": [
+        {
+            "name": "uplatex",
+            "command": "uplatex",
+            "args": [
+                "-file-line-error",
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "dvipdfmx",
+            "command": "dvipdfmx",
+            "args": [
+                "%DOCFILE%"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "uplatex ×2 ➞ dvipdfmx",
+            "tools": [
+                "uplatex",
+                "uplatex",
+                "dvipdfmx"
+            ]
+        }
+    ],
+    "latex-workshop.latex.autoClean.run": "onBuilt",
+    "latex-workshop.latex.autoBuild.run": "never",
+    "latex-workshop.latex.autoBuild.interval": 0,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "files.autoSave": "afterDelay",
+    "code-runner.runInTerminal": true,
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+        "*.sqlite": "${capture}.${extname}-*",
+        "*.db": "${capture}.${extname}-*",
+        "*.sqlite3": "${capture}.${extname}-*",
+        "*.db3": "${capture}.${extname}-*",
+        "*.sdb": "${capture}.${extname}-*",
+        "*.s3db": "${capture}.${extname}-*"
+    },
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false
+    },
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "python": true,
+        "latex": true,
+        "c": false,
+        "cpp": true,
+        "html": true,
+        "javascript": false
+    },
+    "workbench.colorTheme": "Solarized Dark",
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "terminal.integrated.defaultProfile.windows": "Anaconda PS Prompt",
+    "terminal.integrated.profiles.windows": {
+        "Anaconda PS Prompt": {
+            "source": "PowerShell",
+            "args": [
+                "-ExecutionPolicy",
+                "ByPass",
+                "-NoExit",
+                "-Command",
+                "C:\\miniconda3\\shell\\condabin\\conda-hook.ps1"
+            ],
+            "icon": "terminal-powershell",
+            "color": "terminal.ansiGreen",
+        }
+    },
+    "editor.fontSize": 12
+}

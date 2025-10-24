@@ -1,0 +1,41 @@
+# Fdb version 4
+["dvipdf"] 0 "Lec6_temp.dvi" "Lec6_temp.pdf" "Lec6_temp" 0 -1
+  "Lec6_temp.dvi" 1747889686.92674 2076 d9b20540eb6d88ea777574541398a629 "pdflatex"
+  (generated)
+  "Lec6_temp.pdf"
+  (rewritten before read)
+["pdflatex"] 1748420249.83987 "/Users/kondoutakumi/Documents/tex/gijutubunsyo6/Lec6_temp.tex" "Lec6_temp.dvi" "Lec6_temp" 1748420250.01952 2
+  "/Users/kondoutakumi/Documents/tex/gijutubunsyo6/Lec6_temp.tex" 1748420249.39844 1482 c365becb28d6eb77e0f85f8add5b4ed3 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/ascmac/ascgrp.tfm" 1520635638 448 9a1f3a95c3a7e2681aa6eefcf410b7ac ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsbsy.sty" 1717359999 2222 2166a1f7827be30ddc30434e5efcee1b ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsgen.sty" 1717359999 4173 d22509bc0c91281d991b2de7c88720dd ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsmath.sty" 1730928152 88370 c780f23aea0ece6add91e09b44dca2cd ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amsopn.sty" 1717359999 4474 23ca1d3a79a57b405388059456d0a8df ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/amsmath/amstext.sty" 1717359999 2444 71618ea5f2377e33b04fb97afdd0eac2 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/ascmac/ascmac.sty" 1579124881 590 834565f4a016952bf667fd346b7aee71 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/ascmac/tascmac.sty" 1579124881 11463 e16f2fec3bf4db0d4002a155e4cf4467 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/float/float.sty" 1137110151 6749 16d2656a1984957e674b149555f1ea1d ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-cfg/graphics.cfg" 1465944070 1224 978390e9c2234eab29404bc21b268d1e ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics-def/dvipdfmx.def" 1663965824 12296 04d6453afafd99986deba3629756d9ec ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphics.sty" 1730496337 18363 dee506cb8d56825d8a4d020f5d5f8704 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/graphicx.sty" 1717359999 8010 6f2ad8c2b2ffbd607af6475441c7b5e4 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/keyval.sty" 1717359999 2671 70891d50dac933918b827d326687c6e8 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/lscape.sty" 1717359999 1822 ce7e39e35ea3027d24b527bd5c5034d5 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/trig.sty" 1717359999 4023 2c9f39712cf7b43d3eb93a8bbd5c8f67 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1744143146 30366 9174e170fd3bb912f901db16e9e9ee8b ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/moreverb/moreverb.sty" 1303261271 5863 07095464939df437145876547e980c96 ""
+  "/usr/local/texlive/2025/texmf-dist/tex/latex/tools/verbatim.sty" 1717359999 7532 d2e1111e17bfebb1607d8ffa779705ec ""
+  "/usr/local/texlive/2025/texmf-dist/tex/platex/jsclasses/jsarticle.cls" 1677186565 61387 1c16fa09f9aa344f6b7ed4a7e2c399b2 ""
+  "/usr/local/texlive/2025/texmf-dist/web2c/texmf.cnf" 1739380943 42148 61becc7c670cd061bb319c643c27fdd4 ""
+  "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1745470701 3561453 8b5abb5abe780d746bfaae921cc51619 ""
+  "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
+  "Lec6_temp.aux" 1748420249.97259 8 a94a2480d3289e625eea47cd1b285758 "pdflatex"
+  "Lec6_temp.tex" 1748420249.39844 1482 c365becb28d6eb77e0f85f8add5b4ed3 ""
+  (generated)
+  "Lec6_temp.aux"
+  "Lec6_temp.dvi"
+  "Lec6_temp.log"
+  (rewritten before read)
