@@ -1,0 +1,1 @@
+#define OCHIMPO 10cm
