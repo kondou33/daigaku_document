@@ -1,0 +1,37 @@
+graph TD
+    %% 外部操作
+    Start((開始)) --> Init[WiFi接続・初期化]
+    Init --> WaitOSC[OSCパケット受信待機]
+
+    %% ブラウザからのテンポ設定
+    subgraph "ブラウザUI (操作)"
+        BPM_In[/BPM値を入力/]
+    end
+
+    BPM_In -- "Web OSC (/bpm)" --> Master[マスター機]
+    Master -- "同期パケット転送" --> WaitOSC
+
+    %% トロンボーン機（子機）の内部処理
+    WaitOSC --> RecBPM{BPM受信?}
+    RecBPM -- Yes --> Calc[タイマー割り込み周期を更新]
+    RecBPM -- No --> WaitOSC
+
+    Calc --> PlayReady[演奏開始準備完了]
+    
+    %% 実行フェーズ
+    PlayReady --> Trigger{演奏タイミング?}
+    Trigger -- "第1拍目" --> SendOSC[Processingへトリガー送信]
+    Trigger -- "継続中" --> SendData[演奏データ送信]
+
+    %% PC側の出力
+    subgraph "PC (Processing)"
+        SendOSC -- "/trigger/start" --> AudioInit[楽曲再生開始]
+        SendData -- "/note_data" --> AudioSynth[演奏音合成]
+        AudioInit --> Sound((スピーカー出力))
+        AudioSynth --> Sound
+    end
+
+    %% ループ・終了
+    Sound --> Loop{演奏継続?}
+    Loop -- Yes --> Trigger
+    Loop -- No --> WaitOSC

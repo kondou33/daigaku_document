@@ -1,0 +1,78 @@
+\documentclass[uplatex,dvipdfmx]{jsarticle}
+
+\usepackage[uplatex,deluxe]{otf} 
+\usepackage[noalphabet]{pxchfon} 
+\usepackage{stix2} 
+\usepackage[fleqn,tbtags]{mathtools} 
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{float}
+\usepackage{enumitem}
+
+\usepackage{moreverb}
+\usepackage{lscape}
+\usepackage{ascmac}
+\usepackage{xurl}
+\usepackage{graphicx} % 画像挿入用
+\usepackage{subcaption}
+
+\title{生成AI利用申告書(演習課題1)}
+\author{25G1051 近藤巧望}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}[label=--]
+    \item \textgt{氏名:} 近藤巧望
+    \item \textgt{学籍番号:} 25G1051
+    \item \textgt{プログラムファイル名:} \texttt{HCK02\_01.ino}
+    \item \textgt{使用した AI ツール:} Gemini 3
+\end{itemize}
+
+\section*{1. 何に使ったか} 
+
+\begin{itemize}
+    \item 波形のノイズ除去に関するアドバイス，およびコードの最適化（計算負荷の軽減）のアイデア出しに使用した． % [cite: 8]
+\end{itemize}
+
+\section*{2. AIへの指示(プロンプト)} 
+\begin{quote}
+    「arduinoのコードで，正弦波が正しく描画されなかったから，漢字などにすると処理に時間がかかって波形にノイズが出ると思い，無駄なシリアル出力を削除した．
+    だが，まだノイズが出るからどうすれば計算負荷を減らせるかアドバイスが欲しい．
+\end{quote}
+
+\section*{3. AI の出力の使い方} 
+\begin{itemize}
+    \item [$\square$] そのまま使った % [cite: 14]
+    \item [\rlap{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}] 一部修正して使った % [cite: 15]
+    \item [$\square$] 参考にしただけ % [cite: 16]
+\end{itemize}
+\textgt{上で選んだ理由:} % [cite: 17]
+AIからの「pow関数の計算負荷」や「シリアル通信のデータ量」に関する指摘を受け，自身のコードに合わせた変数宣言や定数化を自分で行ったため．
+
+\section*{4. 正しいと確認した方法} 
+\begin{itemize}
+    \item 実際にArduino Unoの実機に書き込み，シリアルプロッタで波形の密度と安定性が向上したことを目視で確認した．
+    \item 浮動小数点の計算コストとサンプリングレートの関係について，自分なりにコードの書き換え前後で動作を比較した．
+\end{itemize}
+
+\section*{5. 問題や間違い} 
+\begin{itemize}
+    \item [\rlap{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}] あった % [cite: 28]
+    \item [$\square$] なかった % [cite: 29]
+\end{itemize}
+\textgt{確認した内容や気づいたこと:} % [cite: 30]
+自分の予想通り計算負荷に関する問題があったことを確認できた．
+また，その原因が無駄なシリアル出力だけでなく，pow関数の計算負荷の高さにあることも理解できた．
+
+\section*{6. 自分で工夫した点} 
+\begin{itemize}
+    \item AIから「計算が重い」というヒントを得た後，pow関数の結果をloop外のグローバル変数で1回だけ計算するように書き換え，実行速度を稼いだ点．
+\end{itemize}
+
+\section*{参考文献} % [cite: 33]
+なし
+
+\end{document}

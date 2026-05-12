@@ -1,0 +1,80 @@
+\documentclass[uplatex,dvipdfmx]{jsarticle}
+
+\usepackage[uplatex,deluxe]{otf} 
+\usepackage[noalphabet]{pxchfon} 
+\usepackage{stix2} 
+\usepackage[fleqn,tbtags]{mathtools} 
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{float}
+\usepackage{enumitem}
+
+\usepackage{moreverb}
+\usepackage{lscape}
+\usepackage{ascmac}
+\usepackage{xurl}
+\usepackage{graphicx} 
+\usepackage{subcaption}
+
+\title{生成AI利用申告書（演習課題2）}
+\author{25G1051 近藤巧望}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{itemize}[label=--]
+    \item \textgt{氏名:} 近藤巧望
+    \item \textgt{学籍番号:} 25G1051
+    \item \textgt{プログラムファイル名:} \texttt{HCK02\_02.pde}
+    \item \textgt{使用した AI ツール:} Gemini 3
+\end{itemize}
+
+\section*{1. 何に使ったか} 
+
+\begin{itemize}
+    \item Arduinoから受信したシリアルデータを，配列を用いてProcessing上でリアルタイムに波形描画するためのアルゴリズム作成，およびプログラム実行時の構文エラーの解消に使用した．
+\end{itemize}
+
+\section*{2. AIへの指示(プロンプト)} 
+\begin{quote}
+    processingで波形を描画するコードを解説して．
+\end{quote}
+\begin{quote}
+    Arduinoからシリアル出力された値を波形にしたい．シリアルから届く数値を配列に溜めてそれを一気にline関数で描画する方法を解説して．
+\end{quote}
+
+\section*{3. AI の出力の使い方} 
+\begin{itemize}
+    \item [$\square$] そのまま使った 
+    \item [\rlap{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}] 一部修正して使った 
+    \item [$\square$] 参考にしただけ 
+\end{itemize}
+\textgt{上で選んだ理由:} 
+以前の演習課題で使用したコードをもとに，AIからの説明を参考に自分でコードを改良して配列のシフト処理を実装したため．
+また，AIからの説明をもとにシリアル通信の読み込み方法を行読み込みに変更するなどコードの構造を自分で理解して修正したため．
+
+\section*{4. 正しいと確認した方法} 
+\begin{itemize}
+    \item 実際にProcessingを実行し，マイクから入力された音声がprocessing上で波形として描画されることを確認した．
+    \item コンパイル時に発生した「val cannot be resolved to a variable」などのエラーについて，変数のスコープや閉じカッコの対応を修正し，正常に動作することを確認した．
+\end{itemize}
+
+\section*{5. 問題や間違い} 
+\begin{itemize}
+    \item [\rlap{$\square$}\raisebox{.15ex}{\hspace{0.1em}$\checkmark$}] あった 
+    \item [$\square$] なかった 
+\end{itemize}
+\textgt{確認した内容や気づいたこと:} 
+当初，AIから音声再生ライブラリ（Minim）を前提とした回答が提示されたが，今回の目的（外部音のキャプチャ）には不要であったため，ライブラリを使わない構成への修正を指示した．また，シリアル通信の仕様（バイト読み込みと行読み込みの違い）について，AIの説明から根本的な原因を理解できた．
+
+\section*{6. 自分で工夫した点} 
+\begin{itemize}
+    \item 受信したデータを単に描画するだけでなく，配列の全要素を一つずつシフトさせる処理（履歴の管理）を実装することで，オシロスコープのような流れる波形表現を再現した点．また，シリアルポートの競合（Port busy）を防ぐためのデバッグ手順を自分で行った点．
+\end{itemize}
+
+\section*{参考文献} 
+なし
+
+\end{document}

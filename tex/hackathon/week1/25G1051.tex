@@ -1,0 +1,83 @@
+\documentclass[uplatex,dvipdfmx]{jsarticle}
+
+\usepackage[uplatex,deluxe]{otf} 
+\usepackage[noalphabet]{pxchfon} 
+\usepackage{stix2} 
+\usepackage[fleqn,tbtags]{mathtools} 
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{float}
+
+\usepackage{moreverb}
+\usepackage{lscape}
+\usepackage{ascmac}
+\usepackage{xurl}
+\usepackage{graphicx} % 画像挿入用
+\usepackage{subcaption}
+
+\begin{document}
+
+\title{ハッカソン第二周目事前課題}
+\author{25G1051 近藤巧望}
+\date{\today}
+\maketitle
+
+\section{社会的背景}
+オーケストラは長い歴史を持ち，世界中で愛されている音楽体験であるが，鑑賞マナーの厳しさや場所の制約から，
+小学生や未就学児のような子供たちが気軽に参加できる環境は限られている．
+また，子供たちが音楽の楽しさを本質的に理解するためには，単なる鑑賞ではなく，自らのアクションによって音が鳴り物体が動くという直感的な演奏体験が非常に適している．
+R. L. Campbellらの研究によれば，子供たちが音楽を理解する過程において，身体的な動きと音の結びつきが重要な役割を果たすことが示されている\cite{Campbell2010}．
+
+そこで本プロジェクトでは，誰でも簡単にアンサンブルに参加でき，自分の操作が即座に音と物理的な動きに変換される，新しい形のインタラクティブなオーケストラ楽器の開発を目指す．
+
+\section{技術的背景}
+小型マイコンボードの代表例としては，Arduinoが挙げられる．
+Auduinoはオープンソースのマイコンボードであり，豊富な入出力ピンと多様なセンサー・アクチュエータとの互換性を持ち，初心者からプロまで幅広いユーザーに支持されている．
+更に，コスト面でも非常に手頃であるため，今回のような教育的なプロジェクトにおいても最適な選択肢となる．
+
+また，音響出力の面では，Processingを用いてサンプリング音源を再生する手法が考えられる．
+Processingはビジュアルアートやインタラクティブなプロジェクトに特化したプログラミング環境であり，
+リアルタイムのオーディオ処理も可能であるため，Arduinoからの演奏指示を受け取って即座に音を出す「発音エンジン」として
+機能させることができる．
+
+伝統的なデジタル楽器の通信規格としてはMIDI(Musical Instrument Digital Interface)が広く用いられている．
+MIDIは音符の高さや強さ，演奏開始・終了のタイミングなどの情報をデジタル信号として伝達する規格であり，
+多くの電子楽器や作曲で用いられるDAW(Digital Audio Workstation)ソフトでもごく一般的に用いられている．
+
+\section{既存システムについて}
+MIDIの通信速度は31.25kbpsであり，Loyによれば，この帯域では単一の音符情報の送出に約1msを要し，多楽器による同時演奏時にはメッセージが直列的に並ぶことで，通信路上で不可避なキューイング遅延が発生する\cite{loy1985}．
+このため，複数の楽器が同時に演奏する際には，音符情報が順番に処理される事による遅延が生じるため，リアルタイム性が損なわれる可能性がある．
+
+また，既存製品のデジタル楽器の多くは，単独の楽器として完結しているため，オーケストラのような複数の楽器の音が合わさるような立体的な演奏体験を提供することが難しい．
+一般的に，人間が楽器として一体感を感じるためには，音と動きが高度に一致している必要があるが，既存のデジタル楽器は音響出力と物理的な動きをそれぞれ個別のプロセスとして扱うことが多く，ユーザーの操作と音・動きの同期が不十分な場合がある\cite{levitin2000}．
+このような背景から，複数の楽器が同時に演奏する際のリアルタイム性の確保や，ユーザーの操作と音・動きの完全な同期を実現する新しいシステムの開発が必要であると考えられる．
+
+\section{自身のアイディア}
+本システムは，複数のArduinoマイコンとProcessingを組み合わせたアンサンブルシステムである．
+使用者は，Arduinoと接続された赤外線センサーやタッチセンサーなどのインターフェースを通じて，音符の高さや強さ・長さを指定することができる．
+複数人の使用者が各Arduino楽器を操作することで，オーケストラのような複数の楽器が同時に演奏する体験を提供する．
+5つのArduinoをそれぞれA-Eとして，役割構成は以下の通りである．
+
+\begin{itemize}
+    \item \textbf{Arduino A-C}：主旋律担当．担当パートの音符情報の保持・生成，および視覚効果（LED・アクチュエータ）の制御を行う．
+    \item \textbf{Arduino D}：リズム担当．楽曲の土台となるリズム情報の生成と，アクチュエータによる「演奏動作」の制御を行う．リズム音は完全にProcessing側から出力されるため，Arduino Dは音と同期した視覚的なパフォーマンスに特化する．
+    \item \textbf{Arduino E（Master）}：マスタークロック担当．各演奏担当機へ同期パルスを送出し，アンサンブルの乱れを防ぐ中継局として機能する．
+    \item \textbf{Processing}：全演奏用Arduino（A-D）からの演奏指示信号を受信し，遅延なく音源を再生する「発音エンジン」として機能する．
+\end{itemize}
+
+本システムでは，Arduino Eを時間軸の基準として，各演奏担当機とProcessingが完全に同期する仕組みを構築する．
+まず，Arduino Eが楽曲のテンポ（BPM）に基づいた一定間隔の同期信号（クロックパルス）を生成する．これを
+各演奏担当機（Arduino A-D）へ一斉に送出し，全マイコン間での「現在の拍」の認識を完全に一致させる．
+更に，楽器としての即時性を確保するために，MIDI規格の限界である31.25kbpsを超える高速通信シリアル通信を採用する．
+これにより，複数の楽器が同時に演奏する際の通信遅延を大幅に削減し，リアルタイム性を確保することが可能となる．
+
+音と動きの同期に関しては，物理的ラグを逆算した先行制御を行うことで，ユーザーの操作と音・動きの完全な同期を実現する．
+これは，アクチュエータによる慣性遅延を考慮し，発音タイミングの数秒前に駆動指示を出すことで，ユーザーの操作と音・動きをほぼ同時に感じさせる．
+
+\begin{thebibliography}{9}
+\bibitem{Campbell2010} R. L. Campbell, J. A. Connell, and S. M. H. Musick, "The role of movement in children's musical understanding,Journal of Research in Music Education, vol. 58, no. 2, pp. 123-135, 2010.
+\bibitem{loy1985} G. Loy, ``Musicians Make a Standard: The MIDI Phenomenon,Computer Music Journal, vol. 9, no. 4, pp. 8--26, 1985.
+\bibitem{levitin2000} D. J. Levitin, et al., ``Control parameters for musical instruments: a foundation for new digital instrument design,Journal of New Music Research, 2000.
+\end{thebibliography}
+
+\end{document}
