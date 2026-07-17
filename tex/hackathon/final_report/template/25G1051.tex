@@ -1,0 +1,55 @@
+\documentclass[uplatex,dvipdfmx]{jlreq}
+
+\input{pckgs.sty}
+\usepackage{hira-stix} % ヒラギノフォント＆STIX2 代替フォント定義（Warning回避）
+\usepackage{float}   % プリアンブルに追加
+
+\begin{document}
+
+\begin{titlepage}
+\vspace*{1cm}
+\centering
+\Huge\textsf{低リソース無線環境における長周期同期を用いた、幼児教育向けの音・物理演出連動型輪唱システム
+}\\[2cm]
+\Large\textsf{情報工学科 2年}\\
+\Large\textsf{25G1051}\\[5pt]
+\huge\textsf{近藤　巧望}
+
+\vspace*{1cm}
+\Large\sffamily
+\begin{itembox}[c]{チーム17}
+\centering
+\begin{tabular}{ll}
+関屋　咲希（24G1084）&
+岩波　晃士（24G1020）\\
+須磨　奏斗（24G1080）&
+木村　海士（25G1045）\\
+仲里　偉武輝（25G1090）&\\
+\end{tabular}
+\end{itembox}
+
+\vspace*{1cm}
+\Large\textsf{\today}
+\end{titlepage}
+\clearpage
+
+%% 以降本文
+\input{sect1}
+
+\input{sect2}
+\input{sect3}
+\input{sect4}
+\input{sect5}
+\input{sect6}
+
+\input{biblio}
+
+
+\appendix
+\renewcommand{\thefigure}{A.\arabic{figure}} % 図番号を A.1, A.2 に
+\renewcommand{\thetable}{A.\arabic{table}}   % 表番号も変える場合
+\renewcommand{\theequation}{\Alph{section}.\arabic{equation}} %式番号をA.1, A.2に
+
+\input{apndx}
+
+\end{document}
